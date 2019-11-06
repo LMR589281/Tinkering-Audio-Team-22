@@ -2,4 +2,4 @@
 GitHub page for tinkering audio team 22
 
 GitHub Link:
-https://github.com/LMR589281/Tinkering-Graphics-Team-22
+https://github.com/LMR589281/Tinkering-Audio-Team-22
