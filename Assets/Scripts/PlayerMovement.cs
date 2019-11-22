@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         /// <para>Input.GetAxis("Horizontal") returns a value between -1 and 1 - left and right respectively.
         /// This amount is the multiplied by a constant value, called 'speed', and the rigidbody's velocity is changed accordingly.</para>
         /// </summary>
-        playerGrounded = rb.velocity.y == 0 ? true : false;
+        playerGrounded = rb.velocity.y == 0 ? true : true;
         
         float x = Input.GetAxis("Horizontal");
         dir = new Vector3(x * speed, rb.velocity.y, 0f);
