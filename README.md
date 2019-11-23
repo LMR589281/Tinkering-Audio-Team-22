@@ -22,3 +22,4 @@ button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Bu
 Close unity (https://answers.unity.com/questions/899037/applicationquit-not-working-1.html)
 over button (https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html)
 event system (https://docs.unity3d.com/2018.1/Documentation/ScriptReference/EventSystems.EventSystem.IsPointerOverGameObject.html)
+rounding up (https://docs.unity3d.com/ScriptReference/Mathf.Round.html)
