@@ -19,3 +19,4 @@ To open my project open the unity project and select the "Opening" scence.
 
 Links used for contract 4:
 https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html
+Close unity (https://answers.unity.com/questions/899037/applicationquit-not-working-1.html)

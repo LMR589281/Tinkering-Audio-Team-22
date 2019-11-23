@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Contract 4/Opening.unity
+    guid: b62f0211ca15b374d8f203b7058c4cd9
+  - enabled: 1
+    path: Assets/Scenes/Contract 4/Help Menu.unity
+    guid: b358fc20a32d0f04e98bf6dc62f0065c
+  - enabled: 1
+    path: Assets/Scenes/Contract 4/Game.unity
+    guid: a8253a6b06a9ca14eb1b051486f38688
   m_configObjects: {}
