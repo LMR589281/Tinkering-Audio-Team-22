@@ -12,6 +12,7 @@ public class AudioTest: MonoBehaviour {
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    //public float sampleDurationSecs = 5;//length, 5
     public int sampleDurationSecs = 5;//length, 5
     public int tone = 1500;//tone, 1500
 
@@ -37,6 +38,7 @@ public class AudioTest: MonoBehaviour {
     // Private 
     private AudioClip CreateToneAudioClip(int frequency) {
         int sampleRate = 44100;
+        //int sampleLength = Mathf.Round(sampleRate * sampleDurationSecs);
         int sampleLength = sampleRate * sampleDurationSecs;
         float maxValue = 1f / 4f;
         
