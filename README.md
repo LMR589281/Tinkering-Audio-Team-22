@@ -15,7 +15,10 @@ Used 2D Sprites pack from unity Asset Store
 https://assetstore.unity.com/packages/essentials/asset-packs/2d-sprites-pack-73728
 
 Contract 4 by Luke Ryan:
-To open my project open the unity project and select the "Opening" scence.
+To open my project open the unity project in the GitHub and select the "Opening" scence, then press the play button.
+
+For peer review: my code is all in the button scritps, my main script is the "buttonSound" script, located in the script folder
+all my scenes are loacted in the scene folder, then under the contract 4 folder, the first scene is the "opening" scene 
 
 Links used for contract 4:
 button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)
