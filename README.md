@@ -1,5 +1,5 @@
 # Tinkering-Audio-Team-22
-GitHub page for tinkering audio team 22
+Tinkering Audio team 22, this GitHub repository holds contract 1 completed by Lachezar Penchev and contract 4 completed by Luke Ryan. 
 
 GitHub Link:
 https://github.com/LMR589281/Tinkering-Audio-Team-22
@@ -8,7 +8,7 @@ What you need to run our project:
 Unity Version 2018.4.2f1
 
 License:
-We used the unlicense license, this is because we don't wish to profit off this work, but we also don't want to stop others from using our work for profit.  
+We used the unlicense license, this is because we don't wish to profit off this work, but we also don't want to stop others from using our work for profit. We want other to be able to use and edit our scritps to help them understand more about creating audio in code.  
 
 Contract 1 by Lachezar Penchev:
 Used 2D Sprites pack from unity Asset Store
