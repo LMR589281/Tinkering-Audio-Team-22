@@ -20,8 +20,14 @@ public class Echo : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        //outAudioClip = echo_maker<samples>();
-        outAudioClip = CreateToneAudioClip(tone);//tone, 1500
+        outAudioClip = CreateToneAudioClipAscending(tone);//tone, 1500
+        float[] samples = new float[outAudioClip.samples];
+        outAudioClip.GetData(samples,0);
+        
+        Debug.Log("SAMPLE SIZE: "+samples.Length);
+
+        float[] newEcho = echo_maker(samples);
+        outAudioClip.SetData(newEcho, 0);
         PlayOutAudio();
     }
 
@@ -62,20 +68,68 @@ public class Echo : MonoBehaviour
         //return samples;
     }
 
-/*
-    private void echo_maker(music_array) {
+    private AudioClip CreateToneAudioClipAscending(int frequency)
+    {
+        int sampleRate = 44100;
+        int sampleLength = sampleRate * sampleDurationSecs;
+        float maxValue = 1f / 4f;
+        maxValue = maxValue / 2.0f; // testing stuff with echoes
 
-        copy = music_array;
+        var audioClip = AudioClip.Create("tone", sampleLength, 1, sampleRate, false);
 
-        for (music_array.Length; music_array.Length<i ; i++)
+        float[] samples = new float[sampleLength];
+
+        for (var i = 0; i < (int)sampleLength/3; i++)
         {
-            float echo = 0.6 * getSampleValueAt(copy, i-3);
-            float combo = getSampleValueAt(music_array[i], i)+echo;
-            setSampleValueAt(music_array[i], i, combo);
+            float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float)i / (float)sampleRate));
+            float v = s * maxValue;
+            samples[i] = v;
+            //print(samples);
+        }
+
+        for (var i = (int)sampleLength / 3; i < (int)(sampleLength / 3)*2; i++)
+        {
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency*1.5f) * ((float)i / (float)sampleRate));
+            float v = s * maxValue;
+            samples[i] = v;
+            //print(samples);
+        }
+
+        for (var i = (int)(sampleLength / 3) * 2; i < (int)sampleLength; i++)
+        {
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency * 2.0f) * ((float)i / (float)sampleRate));
+            float v = s * maxValue;
+            samples[i] = v;
+            //print(samples);
+        }
+
+        audioClip.SetData(samples, 0);
+        return audioClip;
+        //return samples;
+    }
+
+
+    private float[] echo_maker(float[] music_array) {
+
+        float[] copy = music_array;
+        int offset = music_array.Length / 6;
+
+        for (int i=0; i<music_array.Length; i++)
+        {
+            float echo = music_array[i] * 1.5f;//0.6f;
+            //float combo = getSampleValueAt(music_array[i], i)+echo;
+            if(i+ offset < music_array.Length)
+            {
+                copy[i + offset] += echo;
+            }
+            
+            //setSampleValueAt(music_array[i], i, combo);
         
         }
+
+        return copy;
     }
-*/
+
 
 #if UNITY_EDITOR
     //[Button("Save Wav file")]
