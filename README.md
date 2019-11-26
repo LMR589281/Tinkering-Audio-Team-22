@@ -1,20 +1,20 @@
 # Tinkering-Audio-Team-22
 Tinkering Audio team 22, this GitHub repository holds contract 1 completed by Lachezar Penchev and contract 4 completed by Luke Ryan. 
 
-GitHub Link:
+GitHub Link:<br />
 https://github.com/LMR589281/Tinkering-Audio-Team-22
 
-What you need to run our project:
+What you need to run our project:<br />
 Unity Version 2018.4.2f1
 
-License:
+License:<br />
 We used the unlicense license, this is because we don't wish to profit off this work, but we also don't want to stop others from using our work for profit. We want other to be able to use and edit our scritps to help them understand more about creating audio in code.  
 
-Contract 1 by Lachezar Penchev:
+Contract 1 by Lachezar Penchev:<br />
 Used 2D Sprites pack from unity Asset Store
 https://assetstore.unity.com/packages/essentials/asset-packs/2d-sprites-pack-73728
 
-Contract 4 by Luke Ryan:
+Contract 4 by Luke Ryan:<br />
 To open my project open the unity project in the GitHub and select the "Opening" scence, then press the play button.
 
 For peer review: my code is all in the button scritps, my main script is the "buttonSound" script, located in the script folder
