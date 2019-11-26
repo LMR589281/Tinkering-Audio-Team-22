@@ -13,6 +13,12 @@ We used the unlicense license, this is because we don't wish to profit off this 
 Contract 1 by Lachezar Penchev:<br />
 Used 2D Sprites pack from unity Asset Store
 https://assetstore.unity.com/packages/essentials/asset-packs/2d-sprites-pack-73728
+Sound clips:
+https://freesound.org/people/DrMaysta/sounds/418509/
+https://freesound.org/people/LloydEvans09/sounds/187025/
+http://soundbible.com/627-Flapping-Wings.html
+Other links:
+https://www.youtube.com/watch?v=Yb3isH6j-iU
 
 Contract 4 by Luke Ryan:<br />
 To open my project open the unity project in the GitHub and select the "Opening" scence, then press the play button.

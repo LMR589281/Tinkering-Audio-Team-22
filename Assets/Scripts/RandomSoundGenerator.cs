@@ -16,7 +16,7 @@ public class RandomSoundGenerator: MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        outAudioClip = CreateToneAudioClip (1500);
+        outAudioClip = CreateToneAudioClip(Random.Range(100, 1500));
         PlayOutAudio();
     }
     
