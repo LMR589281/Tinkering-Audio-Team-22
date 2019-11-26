@@ -18,11 +18,11 @@ Contract 4 by Luke Ryan:
 To open my project open the unity project in the GitHub and select the "Opening" scence, then press the play button.
 
 For peer review: my code is all in the button scritps, my main script is the "buttonSound" script, located in the script folder
-all my scenes are loacted in the scene folder, then under the contract 4 folder, the first scene is the "opening" scene 
+all my scenes are loacted in the scene folder, then under the contract 4 folder, the first scene is the "opening" scene. 
 
 Links used for contract 4:
-button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)
-Close unity (https://answers.unity.com/questions/899037/applicationquit-not-working-1.html)
-over button (https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html)
-event system (https://docs.unity3d.com/2018.1/Documentation/ScriptReference/EventSystems.EventSystem.IsPointerOverGameObject.html)
+button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)<br />
+Close unity (https://answers.unity.com/questions/899037/applicationquit-not-working-1.html)<br />
+over button (https://answers.unity.com/questions/783279/46-ui-how-to-detect-mouse-over-on-button.html)<br />
+event system (https://docs.unity3d.com/2018.1/Documentation/ScriptReference/EventSystems.EventSystem.IsPointerOverGameObject.html)<br />
 rounding up (https://docs.unity3d.com/ScriptReference/Mathf.Round.html)
