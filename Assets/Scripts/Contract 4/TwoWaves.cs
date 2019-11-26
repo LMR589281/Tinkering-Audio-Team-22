@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 //using NaughtyAttributes;
 using UnityEngine;
@@ -13,14 +17,23 @@ public class TwoWaves : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    public Button yourButton;
 
-    // Start is called before the first frame update
     void Start()
     {
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClipCombine(1500);
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
         PlayOutAudio();
     }
+
 
 
     // Public APIs

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 //using NaughtyAttributes;
 using UnityEngine;
@@ -15,12 +19,20 @@ public class Desending : MonoBehaviour
     public int sampleDurationSecs = 5;//length, 5
     public int tone = 1500;//tone, 1500
 
-    // Start is called before the first frame update
+    public Button yourButton;
+
     void Start()
     {
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClipAscending(1500);
+    }
 
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
         PlayOutAudio();
     }
 

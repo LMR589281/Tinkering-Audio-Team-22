@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections;
 using System.Collections.Generic;
 //using NaughtyAttributes;
 using UnityEngine;
@@ -13,20 +17,30 @@ public class Echo : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    public Button yourButton;
 
-    // Start is called before the first frame update
     void Start()
     {
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
+
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(1500);
+
         float[] samples = new float[outAudioClip.samples];//this set of code takes the float array out of the audio clip
         outAudioClip.GetData(samples, 0);//so that it can be passed into the echo function
         Debug.Log("SAMPLE SIZE: " + samples.Length);//as the echo function only takes in a array of floats
         float[] newEcho = echo_maker(samples);
 
         outAudioClip.SetData(newEcho, 0);   //adds the echo
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
         PlayOutAudio();
     }
+
 
 
     // Public APIs
