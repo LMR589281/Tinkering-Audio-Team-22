@@ -6,7 +6,7 @@ using UnityEditor;
 //Base code provided by...
 public class Normal : MonoBehaviour
 {
-    //creates all the varibles
+    //creates all the variables
     public Button yourButton;
     private AudioSource audioSource;
     private AudioClip outAudioClip;

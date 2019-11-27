@@ -8,32 +8,31 @@ using UnityEditor;
 
 public class Normalizing : MonoBehaviour
 {
+    //declares all the variables needed
     public Button yourButton;
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    //this function is loaded when the program is first loaded
+    //the function creates the button and also generates the audio clip as well as normalizing the sound
     void Start()
     {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(1500);
-
-        float[] samples = new float[outAudioClip.samples];
-        outAudioClip.GetData(samples, 0);
-        float[] Normalized = normalizer(samples);
-
-        outAudioClip.SetData(Normalized, 0); 
+        outAudioClip = normalizer(outAudioClip);
     }
 
+    //this function is activated when its button is click
+    //the function just plays the created audio source
     void TaskOnClick()
     {
         audioSource.PlayOneShot(outAudioClip);
     }
 
-    // Public APIs
-
-    // Private 
+    //this function is loaded when the tone is being created
+    //the function takes in a tone and then creates an array of samples baised on a sine wave
     private AudioClip CreateToneAudioClip(int frequency)
     {
         int sampleDurationSecs = 5;
@@ -54,40 +53,31 @@ public class Normalizing : MonoBehaviour
         audioClip.SetData(samples, 0);
         return audioClip;
     }
-    private float[] normalizer(float[] sample_array)
+
+    //this function is loaded when the tone is being created
+    //the function normalizes the sound by making the sound of the audio baised on the loudest sound in the audio clip
+    private AudioClip normalizer(AudioClip audioClip)
     {
+        float[] samples = new float[outAudioClip.samples];
+        outAudioClip.GetData(samples, 0);
 
         float largest_sample = 0;
-        //float[] copy = sample_array;
 
-        for (int i = 0; i < sample_array.Length; i++)
+        for (int i = 0; i < samples.Length; i++)
         {
-            if (largest_sample < sample_array[i])
+            if (largest_sample < samples[i])
             {
-                largest_sample = sample_array[i];
+                largest_sample = samples[i];
             }
         }
         float amplification = 32767.0f / largest_sample;
 
-        for (int i = 0; i < sample_array.Length; i++)
+        for (int i = 0; i < samples.Length; i++)
         {
-            float new_sample = amplification * sample_array[i];
-            sample_array[i] = new_sample;
+            float new_sample = amplification * samples[i];
+            samples[i] = new_sample;
         }
-        return sample_array;
+        outAudioClip.SetData(samples, 0);
+        return audioClip;
     }
 }
-/*
-function normalize(sound):
-    largest = 0;
-    for s in getSamples(sound) do:
-        largest = max(largest, getSampleValue(s));
-    endfor
-
-    amplification = 32767.0 / largest;
-
-    for s in getSamples(sound) do:
-        louder = amplification * getSampleValue(s);
-        setSampleValue(s, louder);
-endfor
-*/
