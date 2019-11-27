@@ -1,16 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
-//using NaughtyAttributes;
-using UnityEngine;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
 
 public class Desending : MonoBehaviour
 {
@@ -32,23 +24,10 @@ public class Desending : MonoBehaviour
 
     void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
-        PlayOutAudio();
-    }
-
-
-    // Public APIs
-    public void PlayOutAudio()
-    {
         audioSource.PlayOneShot(outAudioClip);
     }
 
-
-    public void StopAudio()
-    {
-        audioSource.Stop();
-    }
-
+    // Public APIs
 
     //this function creates a ascending audio clip
     private AudioClip CreateToneAudioClipAscending(int frequency)
@@ -85,15 +64,4 @@ public class Desending : MonoBehaviour
         audioClip.SetData(samples, 0);
         return audioClip;//returns the audio clip
     }
-
-
-#if UNITY_EDITOR
-    //[Button("Save Wav file")]
-    private void SaveWavFile()
-    {
-        string path = EditorUtility.SaveFilePanel("Where do you want the wav file to go?", "", "", "wav");
-        var audioClip = CreateToneAudioClipAscending(1500);
-        SaveWavUtil.Save(path, audioClip);
-    }
-#endif
 }

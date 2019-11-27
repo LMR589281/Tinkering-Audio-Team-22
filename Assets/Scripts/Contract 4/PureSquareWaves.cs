@@ -3,8 +3,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-//halving pitch
-public class Halving : MonoBehaviour
+public class PureSquareWaves : MonoBehaviour
 {
     public Button yourButton;
     private AudioSource audioSource;
@@ -39,6 +38,12 @@ public class Halving : MonoBehaviour
         for (var i = 0; i < sampleLength; i++)
         {
             float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float)i / (float)sampleRate));
+            if (s > 0) {
+                s = 1;
+            }
+            else {
+                s = -1;
+            }
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -47,17 +52,3 @@ public class Halving : MonoBehaviour
         return audioClip;
     }
 }
-
-/*
-function half(source):
-    target = makeEmptySound(getLength(source) * 2);
-    sourceIndex = 0;
-    for targetIndex in range(0, getLength( target)):
-        value = getSampleValueAt( source, int(sourceIndex));
-        setSampleValueAt( target, targetIndex, value);
-        sourceIndex = sourceIndex + 0.5;
-    endfor
-    return target;
-endfunction
-
-*/

@@ -1,62 +1,48 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
-//using NaughtyAttributes;
-using UnityEngine;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
-public class Normal : MonoBehaviour {
+//Base code provided by...
+public class Normal : MonoBehaviour
+{
+    //creates all the varibles
     public Button yourButton;
+    private AudioSource audioSource;
+    private AudioClip outAudioClip;
 
+    //this function is loaded when the program is first loaded
+    //the function creates the button and also generates the audio clip
     void Start()
     {
         Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(1500);
     }
 
+    //this function is activated when its button is click
+    //the function just plays the created audio source
     void TaskOnClick()
     {
-        Debug.Log("You have clicked the button!");
-        PlayOutAudio();
+        audioSource.PlayOneShot(outAudioClip);
     }
 
-    private AudioSource audioSource;
-    private AudioClip outAudioClip;
-    
-   
-
-    // Public APIs
-    public void PlayOutAudio() {
-        audioSource.PlayOneShot(outAudioClip);    
-    }
-
-
-    public void StopAudio() {
-        audioSource.Stop();
-    }
-    
-    
-    // Private 
-    private AudioClip CreateToneAudioClip(int frequency) {
+    //this function is loaded when the tone is being created
+    //the function takes in a tone and then creates an array of samples baised on a sine wave
+    private AudioClip CreateToneAudioClip(int frequency)
+    {
         int sampleDurationSecs = 5;
         int sampleRate = 44100;
         int sampleLength = sampleRate * sampleDurationSecs;
         float maxValue = 1f / 4f;
-        
+
         var audioClip = AudioClip.Create("tone", sampleLength, 1, sampleRate, false);
-        
+
         float[] samples = new float[sampleLength];
-        for (var i = 0; i < sampleLength; i++) {
-            float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float) i / (float) sampleRate));
+        for (var i = 0; i < sampleLength; i++)
+        {
+            float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float)i / (float)sampleRate));
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -64,14 +50,5 @@ public class Normal : MonoBehaviour {
         audioClip.SetData(samples, 0);
         return audioClip;
     }
-
-
-#if UNITY_EDITOR
-    //[Button("Save Wav file")]
-    private void SaveWavFile() {
-        string path = EditorUtility.SaveFilePanel("Where do you want the wav file to go?", "", "", "wav");
-        var audioClip = CreateToneAudioClip(1500);
-        SaveWavUtil.Save(path, audioClip);
-    }
-#endif
 }
+

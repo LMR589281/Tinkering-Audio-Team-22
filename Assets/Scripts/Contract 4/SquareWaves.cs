@@ -1,40 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-//using NaughtyAttributes;
-using UnityEngine;
-
+﻿using UnityEngine;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
-
 public class SquareWaves : MonoBehaviour
 {
+    public Button yourButton;
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
-
-    // Start is called before the first frame update
     void Start()
     {
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(TaskOnClick);
         audioSource = GetComponent<AudioSource>();
         outAudioClip = CreateToneAudioClip(1500);
-        PlayOutAudio();
     }
 
-
-    // Public APIs
-    public void PlayOutAudio()
+    void TaskOnClick()
     {
         audioSource.PlayOneShot(outAudioClip);
     }
 
-
-    public void StopAudio()
-    {
-        audioSource.Stop();
-    }
-
+    // Public APIs
 
     // Private 
     private AudioClip CreateToneAudioClip(int frequency)
@@ -50,9 +38,7 @@ public class SquareWaves : MonoBehaviour
         for (var i = 0; i < sampleLength; i++)
         {
             float x = 2.0f * Mathf.PI * frequency * ((float)i / (float)sampleRate);
-            //float s = Mathf.Sin(x) + Mathf.Sin(3 * x) / 3 + Mathf.Sin(5 * x) / 5 + Mathf.Sin(7 * x) / 7 + Mathf.Sin(9 * x) / 9 ;
             float s = (4 * Mathf.Sin(x)) / Mathf.PI + (4 * Mathf.Sin(3 * x)) / (3 * Mathf.PI) + (4 * Mathf.Sin(5 * x)) / (5 * Mathf.PI) + (7 * Mathf.Sin(3 * x)) / (7 * Mathf.PI);
-            //float s = Mathf.Sin(x);
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -60,15 +46,4 @@ public class SquareWaves : MonoBehaviour
         audioClip.SetData(samples, 0);
         return audioClip;
     }
-
-
-#if UNITY_EDITOR
-    //[Button("Save Wav file")]
-    private void SaveWavFile()
-    {
-        string path = EditorUtility.SaveFilePanel("Where do you want the wav file to go?", "", "", "wav");
-        var audioClip = CreateToneAudioClip(1500);
-        SaveWavUtil.Save(path, audioClip);
-    }
-#endif
 }
