@@ -5,10 +5,13 @@ using UnityEditor;
 #endif
 public class SquareWaves : MonoBehaviour
 {
+    //declares all the variables needed
     public Button yourButton;
     private AudioSource audioSource;
     private AudioClip outAudioClip;
 
+    //this function is called once when the program is opened 
+    //the function makes a button and then generates a square wave
     void Start()
     {
         Button btn = yourButton.GetComponent<Button>();
