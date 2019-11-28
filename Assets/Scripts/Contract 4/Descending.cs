@@ -3,7 +3,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-public class Ascending : MonoBehaviour
+public class Descending : MonoBehaviour
 {
     //declares all the variables needed
     public Button yourButton;
@@ -11,7 +11,7 @@ public class Ascending : MonoBehaviour
     private AudioClip outAudioClip;
 
     //this function is called once when the program is opened 
-    //the function makes a button and then generates a sine wave with a ascending tone
+    //the function makes a button and then generates a sine wave with a descending tone
     void Start()
     {
         Button btn = yourButton.GetComponent<Button>();
@@ -28,7 +28,7 @@ public class Ascending : MonoBehaviour
     }
 
     //this function is called during the start function
-    //the function creates a audio clip with a ascending tone
+    //the function creates a audio clip with a descending tone
     private AudioClip CreateToneAudioClipAscending(int frequency)
     {
         int sampleDurationSecs = 5;
@@ -40,8 +40,8 @@ public class Ascending : MonoBehaviour
 
         float[] samples = new float[sampleLength];      //array of floats for the samples
         //loop to get all the samples
-        for (var i = 0; i < (int)sampleLength / 3; i++)     //the audio clip is split into 3 different parts to make a ascending sound
-        {       //first third 
+        for (var i = 0; i < (int)sampleLength / 3; i++)     //the audio clip is split into 3 parts to make a descending sound
+        {//first third 
             float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float)i / (float)sampleRate));      //sample from the sine wave
             float v = s * maxValue;     //lowering the max value of the sample
             samples[i] = v;     //adding the sample to the array
@@ -49,14 +49,14 @@ public class Ascending : MonoBehaviour
 
         for (var i = (int)sampleLength / 3; i < (int)(sampleLength / 3) * 2; i++)//second third
         {
-            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency * 1.5f) * ((float)i / (float)sampleRate));     //sample from the sine wave increased frequecny by 150%
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency * 0.6f) * ((float)i / (float)sampleRate));     //sample from the sine wave frequency decreased by 40%
             float v = s * maxValue;     //lowering the max value of the sample
             samples[i] = v;     //adding the sample to the array
         }
 
         for (var i = (int)(sampleLength / 3) * 2; i < (int)sampleLength; i++)//last third
         {
-            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency * 2.0f) * ((float)i / (float)sampleRate));     //sample from the sine wave increased frequecny by 200%
+            float s = Mathf.Sin(2.0f * Mathf.PI * (frequency * 0.3f) * ((float)i / (float)sampleRate));     //sample from the sine wave frequency decreased by 30%
             float v = s * maxValue;     //lowering the max value of the sample
             samples[i] = v;     //adding the sample to the array
         }

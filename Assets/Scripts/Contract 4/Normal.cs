@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEditor;
 #endif
 //Base code provided by...
+//Code for button from https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html
 public class Normal : MonoBehaviour
 {
     //creates all the variables

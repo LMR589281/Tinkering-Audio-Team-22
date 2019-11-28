@@ -56,7 +56,7 @@ public class Echo : MonoBehaviour
     //the function adds echo by adding a lowerer frequencey at a delayed time 
     private AudioClip echo_maker(AudioClip audioClip)
     {
-        float[] samples = new float[outAudioClip.samples];  //takes the samples out of the audio clip
+        float[] samples = new float[outAudioClip.samples];      //takes the samples out of the audio clip
         outAudioClip.GetData(samples, 0);  
 
         float[] copy = samples;    //copys the array of samples

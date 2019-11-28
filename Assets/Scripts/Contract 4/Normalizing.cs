@@ -57,27 +57,27 @@ public class Normalizing : MonoBehaviour
     //this function is loaded when the tone is being created
     //the function normalizes the sound by making the sound of the audio baised on the loudest sound in the audio clip
     private AudioClip normalizer(AudioClip audioClip)
-    {
+    {       //takes in and audio clip and outputs an audio clip
         float[] samples = new float[outAudioClip.samples];
         outAudioClip.GetData(samples, 0);
 
-        float largest_sample = 0;
+        float largest_sample = 0;       
 
-        for (int i = 0; i < samples.Length; i++)
+        for (int i = 0; i < samples.Length; i++)        //loops through every element in the sample array
         {
-            if (largest_sample < samples[i])
+            if (largest_sample < samples[i])        //if the current sample in the list is bigger than the largest sample 
             {
-                largest_sample = samples[i];
+                largest_sample = samples[i];        //then the new sample is set as the largest sample
             }
         }
-        float amplification = 32767.0f / largest_sample;
+        float amplification = 32767.0f / largest_sample;        //find the amplification baised on the largest sample
 
-        for (int i = 0; i < samples.Length; i++)
+        for (int i = 0; i < samples.Length; i++)        //loops through every element in the sample array
         {
-            float new_sample = amplification * samples[i];
-            samples[i] = new_sample;
+            float new_sample = amplification * samples[i];      //multiply each element by the amplification
+            samples[i] = new_sample;        //set the new value into the sample array
         }
-        outAudioClip.SetData(samples, 0);
-        return audioClip;
+        outAudioClip.SetData(samples, 0);       //adds the sample array back to the audio clip
+        return audioClip;       //returns audio clip back to the start function
     }
 }

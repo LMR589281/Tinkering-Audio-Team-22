@@ -28,5 +28,4 @@ all my scenes are loacted in the scene folder, then under the contract 4 folder,
 
 Links used for contract 4:
 button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)<br />
-square waves (https://www.mathworks.com/help/matlab/math/square-wave-from-sine-waves.html)
-rounding up (https://docs.unity3d.com/ScriptReference/Mathf.Round.html)???<br />
+square waves (https://www.desmos.com/calculator/6ihiapwpgw)
