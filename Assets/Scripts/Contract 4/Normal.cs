@@ -3,7 +3,7 @@ using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-//Base code provided by...
+//Base code provided from the first workshop
 //Code for button from https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html
 public class Normal : MonoBehaviour
 {
