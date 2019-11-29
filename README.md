@@ -24,7 +24,8 @@ Other links:<br />
 https://www.youtube.com/watch?v=Yb3isH6j-iU<br />
 
 Contract 4 by Luke Ryan:<br />
-To open my project open the unity project in the GitHub repository and then select the "5 buttons" scene, then press the play button.<br />
+To open my project open the unity project in the GitHub repository and then select the "5 buttons" scene,<br />
+then press the play button. Also make sure the scence is in 2D as well.<br />
 All my scripts are in the contract 4 folder within the script folder.
 
 Links used for contract 4:
