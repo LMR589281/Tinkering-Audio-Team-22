@@ -1,14 +1,17 @@
 # Tinkering-Audio-Team-22
 Tinkering Audio team 22, this GitHub repository holds contract 1 completed by Lachezar Penchev and contract 4 completed by Luke Ryan. 
 
-GitHub Link:<br />
+Link to our GitHub repository:<br />
 https://github.com/LMR589281/Tinkering-Audio-Team-22
 
 What you need to run our project:<br />
-Unity Version 2018.4.2f1
+Unity with version 2018.4.2f1, as well as a monitor or a headset capable of outputting sound
 
 License:<br />
-We used the unlicense license, this is because we don't wish to profit off this work, but we also don't want to stop others from using our work for profit. We want other to be able to use and edit our scritps to help them understand more about creating audio in code.  
+We have chosen to use the unlicensed license, as we don't wish to profit of the scripts we have made or adapted, but we also don't want to stop others from using our work for education, profit or modification.
+We want others to be able to use and read our scripts to help them understand more about tinkering audio through scripts. 
+We have chosen this licence over other similar licenses such as the MIT license because the unlicensed does not need any conditions while the MIT license does need a license and copyright notice,
+which is better when you want to keep more ownership over your work.   
 
 Contract 1 by Lachezar Penchev:<br />
 Used 2D Sprites pack from unity Asset Store<br />
@@ -21,11 +24,9 @@ Other links:<br />
 https://www.youtube.com/watch?v=Yb3isH6j-iU<br />
 
 Contract 4 by Luke Ryan:<br />
-To open my project open the unity project in the GitHub and select the "Opening" scence, then press the play button.
-
-For peer review: my code is all in the button scritps, my main script is the "buttonSound" script, located in the script folder
-all my scenes are loacted in the scene folder, then under the contract 4 folder, the first scene is the "opening" scene. 
+To open my project open the unity project in the GitHub repository and then select the "5 buttons" scene, then press the play button.<br />
+All my scripts are in the contract 4 folder within the script folder.
 
 Links used for contract 4:
-button on click(https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)<br />
-square waves (https://www.desmos.com/calculator/6ihiapwpgw)
+Script for button on click (https://docs.unity3d.com/530/Documentation/ScriptReference/UI.Button-onClick.html)<br />
+Formula for square wave (https://www.desmos.com/calculator/6ihiapwpgw)
