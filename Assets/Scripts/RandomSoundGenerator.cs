@@ -13,26 +13,25 @@ public class RandomSoundGenerator: MonoBehaviour {
     private AudioClip outAudioClip;
     
     
-    // Start is called before the first frame update
+    // Chooses a random number between 100 and 1500 to be sampleRate.
     void Start() {
         audioSource = GetComponent<AudioSource>();
-        outAudioClip = CreateToneAudioClip (1500);
+        outAudioClip = CreateToneAudioClip(Random.Range(100, 1500));
         PlayOutAudio();
+
     }
-    
-
-    // Public APIs
-    public void PlayOutAudio() {
-        audioSource.PlayOneShot(outAudioClip);    
+   public void PlayOutAudio()
+    {
+        audioSource.PlayOneShot(outAudioClip);
     }
 
 
-    public void StopAudio() {
+    public void StopAudio()
+    {
         audioSource.Stop();
     }
-    
-    
-    // Private 
+
+    // Calculates to produce a sound.
     private AudioClip CreateToneAudioClip(int frequency) {
         int sampleDurationSecs = 5;
         int sampleRate = 44100;
@@ -43,7 +42,7 @@ public class RandomSoundGenerator: MonoBehaviour {
         
         float[] samples = new float[sampleLength];
         for (var i = 0; i < sampleLength; i++) {
-            float s = Mathf.Sin(2.0f * Mathf.PI * frequency * ((float) i / (float) sampleRate));
+            float s = Mathf.Sin(2.0f * Mathf.PI * ((frequency) * 2)  * ((float) i / (float) sampleRate));
             float v = s * maxValue;
             samples[i] = v;
         }
@@ -51,14 +50,4 @@ public class RandomSoundGenerator: MonoBehaviour {
         audioClip.SetData(samples, 0);
         return audioClip;
     }
-
-    
-#if UNITY_EDITOR
-    //[Button("Save Wav file")]
-    private void SaveWavFile() {
-        string path = EditorUtility.SaveFilePanel("Where do you want the wav file to go?", "", "", "wav");
-        var audioClip = CreateToneAudioClip(1500);
-        SaveWavUtil.Save(path, audioClip);
-    }
-#endif
 }

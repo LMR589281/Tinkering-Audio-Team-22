@@ -12,7 +12,7 @@ public class PlaySoundOnKeypress : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //Plays an audio clip after button is pressed.
     void Update()
     {if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A))
             FlyWalk.Play();
